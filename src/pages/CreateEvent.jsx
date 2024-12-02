@@ -14,6 +14,7 @@ const CreateEvent = () => {
   const [tagInput, setTagInput] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
+    title: "",
     date: "",
     startTime: "",
     endTime: "",
@@ -135,6 +136,20 @@ const CreateEvent = () => {
             </div>
           </div>
 
+          <div className="mt-3">
+            <label htmlFor="title" className="form-label fs-4 fw-semibold">
+              Title
+            </label>
+            <input
+              style={{ width: "279px" }}
+              type="text"
+              id="title"
+              placeholder="Event title"
+              required
+              className="form-control bg-secondary-subtle py-2 shadow-lg"
+            />
+          </div>
+
           {/* Date and Time */}
           <div className="mt-3">
             <label className="form-label fs-4 fw-semibold">
@@ -146,6 +161,7 @@ const CreateEvent = () => {
               </label>
               <input
                 id="date"
+                required
                 type="date"
                 className="form-control shadow-none bg-secondary-subtle py-2"
                 name="date"
@@ -163,6 +179,7 @@ const CreateEvent = () => {
                   type="time"
                   className="form-control shadow-none bg-secondary-subtle py-2"
                   name="startTime"
+                  required
                   onChange={handleChange}
                   style={{ width: "279px" }}
                 />
@@ -174,6 +191,7 @@ const CreateEvent = () => {
                 <input
                   type="time"
                   id="end"
+                  required
                   className="form-control shadow-none bg-secondary-subtle py-2"
                   name="endTime"
                   onChange={handleChange}
@@ -233,6 +251,7 @@ const CreateEvent = () => {
               className="form-control bg-secondary-subtle shadow-none"
               rows="12"
               name="description"
+              required
               onChange={handleChange}
             ></textarea>
           </div>
@@ -254,6 +273,7 @@ const CreateEvent = () => {
                   id="category"
                   className="form-select shadow-none border border-1 py-2"
                   name="category"
+                  required
                   onChange={handleChange}
                   style={{ width: "241px" }}
                 >

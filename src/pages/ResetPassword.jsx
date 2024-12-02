@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, useLocation,useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ActionBtn from "../components/ActionBtn";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { resetPasswordScchema } from "../utils/formValidator";
@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const [show2, setShow2] = useState(false);
   const toggleShow = () => setShow(!show);
   const toggleShow2 = () => setShow2(!show2);
-  const redirect = useNavigate()
+  const redirect = useNavigate();
   const {
     register,
     handleSubmit,
@@ -37,8 +37,8 @@ const ResetPassword = () => {
       try {
         const result = await axios.post(url, body);
         if (result.status === 200) {
-          toast.success('password reset successful')
-          redirect('/login')
+          toast.success("password reset successful");
+          redirect("/login");
         }
       } catch (error) {
         toast.error(error?.response?.data?.message || error?.message, {
