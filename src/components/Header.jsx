@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import logo from "../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   IoMdMenu,
@@ -21,6 +21,7 @@ function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
+  const [user, setUser] = useState("JD");
 
   const handleToggle = () => {
     setExpanded(!expanded);
@@ -28,6 +29,19 @@ function Header() {
   const handleShowPersonMenu = () => {
     setShowMenu(!showMenu);
   };
+  const token = localStorage.getItem("mb-token");
+  const loggedInUser = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+      const who = loggedInUser
+        .split("")
+        .map((n) => n.charAt(0).toUpperCase())
+        .join("");
+      setUser(who);
+    }
+  }, []);
 
   return (
     <Navbar expand="lg" className="bg-white header py-3 position-sticky top-0 ">
@@ -62,7 +76,7 @@ function Header() {
           {isLoggedIn ? (
             <Nav className="position-relative logout ms-lg-auto d-flex flex-row gap-3">
               <div className="rounded-circle profile d-flex justify-content-center align-items-center">
-                <h1>JD</h1>
+                <h1>{user}</h1>
               </div>
               <button
                 className="bg-transparent border-0"
@@ -76,7 +90,7 @@ function Header() {
                   style={{ top: "80px", left: "-10px" }}
                   className="position-absolute "
                 >
-                  <UserProfileMenu />
+                  <UserProfileMenu setIsLoggedIn={setIsLoggedIn} />
                 </div>
               )}
             </Nav>
