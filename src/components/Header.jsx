@@ -36,9 +36,9 @@ function Header() {
     if (token) {
       setIsLoggedIn(true);
       const who = loggedInUser
-        .split("")
+        .split(" ") 
         .map((n) => n.charAt(0).toUpperCase())
-        .join("");
+        .join(" ");
       setUser(who);
     }
   }, []);

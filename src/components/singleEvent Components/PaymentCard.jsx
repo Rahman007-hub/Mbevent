@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import { useState } from "react";
 import ActionBtn from "../ActionBtn";
 import ConfirmPaymentModal from "./ConfirmPaymentModal";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const PaymentCard = () => {
   const [showModal, setShowModal] = useState(false);
-  const token = false;
+  const token = localStorage.getItem("mb-token");
 
   return (
     <div
