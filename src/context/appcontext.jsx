@@ -21,13 +21,13 @@ const AppProvider = ({ children }) => {
       const result = await axios(
         `${url}?page=${page}&searchTerm=${searchTerm}&location=${locationTerm}&category=${categoryTerm}&price=${priceTerm}`
       );
-      console.log(result);
+      // console.log(result);
       setIsLoading(false);
       setEvents(result.data.events);
       setPage(result.data.currentPage);
       setTotalPages(result.data.totalPages);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   useEffect(() => {

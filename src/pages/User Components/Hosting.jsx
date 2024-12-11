@@ -19,11 +19,11 @@ const Hosting = () => {
       const result = await axios(url, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(result);
+      // console.log(result);
       setIsLoading(false);
       setEvents(result.data.events);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error && error?.status === 401) {
         toast.error("Session Expired", Login);
         localStorage.removeItem("mb-token");

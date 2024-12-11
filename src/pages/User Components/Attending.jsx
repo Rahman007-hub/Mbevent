@@ -19,3 +19,4 @@ const Attending = () => {
 };
 
 export default Attending;
+

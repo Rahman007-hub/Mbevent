@@ -13,7 +13,7 @@ const EventProperties = ({
   startTime,
   hostedBy,
   price,
-  decription,
+  description,
 }) => {
   return (
     <div className="container ">
@@ -27,8 +27,9 @@ const EventProperties = ({
       <div className="row mt-5 mb-3 justify-content-between">
         <div className="col-md-7">
           <h1 className="fs-3">
-            <FaCalendarAlt /> {moment(date).format("MMM Do YYY")} {startTime}
+            <FaCalendarAlt /> {moment(date).format("MMM Do YYYY")} {startTime}
           </h1>
+          <h1 className="fs-3">Hosted By : {hostedBy.fullName}</h1>
           <h1 className="fs-4 my-3">
             <FaLocationDot /> {location}{" "}
           </h1>
@@ -45,10 +46,10 @@ const EventProperties = ({
             })}
           </div>
           <h1>{title} </h1>
-          <p>{decription}</p>
+          <p>{description}</p>
         </div>
         <div className="col-md-4  text-white d-flex justify-content-start justify-content-md-end ">
-          <PaymentCard />
+          <PaymentCard price={price} />
         </div>
       </div>
     </div>

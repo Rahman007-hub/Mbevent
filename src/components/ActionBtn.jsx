@@ -7,11 +7,12 @@ const ActionBtn = ({
   type,
   handleClick,
   disable,
+  cursor,
 }) => {
   return (
     <button
       className={`main-bg-color text-white rounded-2 p-2 mybtn fw-medium ${className}`}
-      style={{ height: "50px", width }}
+      style={{ height: "50px", width, cursor }}
       type={type ? type : "button"}
       onClick={handleClick}
       disabled={disable}

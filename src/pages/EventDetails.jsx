@@ -7,6 +7,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const EventDetails = () => {
   const { ...all } = events[1];
@@ -30,7 +31,7 @@ const EventDetails = () => {
   };
   useEffect(() => {
     getevent();
-  }, []);
+  }, [eventId]);
 
   if (isLoading) {
     return (
@@ -47,12 +48,20 @@ const EventDetails = () => {
       <Layout>
         <div className="container">
           <h3 className="my-4 fs-5">
-            Home {">"} Events {">"}{" "}
-            <span className="main-color">Event Details</span>
+            <Link to="/" className="text-decoration-none text-dark">
+              Home
+            </Link>{" "}
+            {">"}{" "}
+            <Link to="/events" className="text-decoration-none text-dark">
+              Events
+            </Link>{" "}
+            {">"} <span className="main-color">Event Details</span>
           </h3>
         </div>
         <EventProperties {...event} />
-        {similarEvents.length > 0 && <OthersLiked />}
+        {similarEvents.length > 0 && (
+          <OthersLiked similarEvents={similarEvents} />
+        )}
       </Layout>
     </>
   );
