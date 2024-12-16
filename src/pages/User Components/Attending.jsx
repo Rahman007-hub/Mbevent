@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const Attending = () => {
   const redirect = useNavigate();
   const token = localStorage.getItem("mb-token");
- const url = "https://mbevent-server.onrender.com/api/v1/event/attending";
+  const url = "https://mbevent-server.onrender.com/api/v1/attending";
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
